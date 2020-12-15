@@ -1,9 +1,12 @@
-const puppeteer =  require("puppeteer");
-
+const puppeteer =  require("puppeteer-extra");
+// add stealth plugin and use defaults (all evasion techniques)
+const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 exports.lambdaHandler = async (event) => {
+  const url = event['queryStringParameters'].url;
+  console.log(event['queryStringParameters']);
+  puppeteer.use(StealthPlugin());
   try {
-    console.log("here");
-    const browser = await puppeteer.launch({executablePath: '/usr/bin/chromium', headless: true, dumpio: true, devtools: false, args: ['--autoplay-policy=user-gesture-required',
+    const browser = await puppeteer.launch({executablePath: '/usr/bin/chromium', headless: true, dumpio: true, args: ['--autoplay-policy=user-gesture-required',
     '--disable-background-networking',
     '--disable-background-timer-throttling',
     '--disable-backgrounding-occluded-windows',
@@ -42,9 +45,13 @@ exports.lambdaHandler = async (event) => {
     '--single-process']});
     console.log("Launched");
     const page = await browser.newPage();
-    console.log("Page opened");
-    await page.goto("https://www.google.com");
-    console.log("goto google done");
+
+    if(url) {
+      await page.goto(url);
+    } else {
+      await page.goto("https://google.com");
+    }
+    
     const pdfStream = await page.pdf();
     await browser.close();
     return {
