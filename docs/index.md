@@ -20,3 +20,4 @@ For more details see the [Github Repository](https://github.com/VikashLoomba/AWS
 ### Support or Contact
 
 Having trouble? Check out our discussions and we'll get back to you [discussions](https://github.com/VikashLoomba/AWS-Lambda-Docker-Puppeteer/discussions).
+{% seo %}
