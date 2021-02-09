@@ -1,6 +1,7 @@
 # Define function directory
 ARG FUNCTION_DIR="/function"
 
+# Build Stage 1: Install aws-lambda-ric dependencies, npm install package.json dependencies
 FROM node:12-buster as build-image
 # Include global arg in this stage of the build
 ARG FUNCTION_DIR
@@ -22,6 +23,7 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 WORKDIR ${FUNCTION_DIR}
 RUN npm install
 
+# Build Stage 2: Copy Build Stage 1 files in to Stage 2. Install chromium dependencies and chromium.
 FROM node:12-buster-slim
 # Include global arg in this stage of the build
 ARG FUNCTION_DIR
