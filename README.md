@@ -2,5 +2,4 @@ This repo contains the code needed to run Puppeteer on Lambda with a Docker Cont
 
 For more setup instructions, please see [Setup Instructions](https://vikashloomba.github.io/AWS-Lambda-Docker/) and [here](https://link.medium.com/1iB5MeXJfcb)
 
-Example: https://0o78rqqd27.execute-api.us-west-2.amazonaws.com/default/get-image?url=https://example.com (You can change the URL query param)
-(Please use the discussions page for questions/comments/etc.)
+The /app directory contains the puppeteer code, which you can edit as needed. The Dockerfile installs and updates dependencies for the node lambda runtime, npm dependencies, as well as chromium.
