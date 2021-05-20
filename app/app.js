@@ -43,7 +43,8 @@ exports.lambdaHandler = async (event) => {
     '--use-gl=swiftshader',
     '--use-mock-keychain',
     '--single-process',
-    '--enable-logging=v1']});
+    '--enable-logging=v1',
+    '--disable-gpu']});
     console.log("Launched");
     const page = await browser.newPage();
 

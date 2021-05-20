@@ -41,4 +41,5 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["/usr/local/bin/npx", "aws-lambda-ric"]
-CMD [ "app.lambdaHandler" ]
+ENV HOME="/tmp"
+CMD [ "/function/app.lambdaHandler" ]
