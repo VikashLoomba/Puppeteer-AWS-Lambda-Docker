@@ -42,7 +42,8 @@ exports.lambdaHandler = async (event) => {
     '--password-store=basic',
     '--use-gl=swiftshader',
     '--use-mock-keychain',
-    '--single-process']});
+    '--single-process',
+    '--enable-logging=v1']});
     console.log("Launched");
     const page = await browser.newPage();
 
