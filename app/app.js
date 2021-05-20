@@ -6,7 +6,7 @@ exports.lambdaHandler = async (event) => {
   console.log(event['queryStringParameters']);
   puppeteer.use(StealthPlugin());
   try {
-    const browser = await puppeteer.launch({executablePath: '/usr/bin/chromium', headless: true, dumpio: true, args: ['--autoplay-policy=user-gesture-required',
+    const browser = await puppeteer.launch({executablePath: '/usr/bin/chromium', headless: true, userDataDir: "/tmp",dumpio: true, args: ['--autoplay-policy=user-gesture-required',
     '--disable-background-networking',
     '--disable-background-timer-throttling',
     '--disable-backgrounding-occluded-windows',
