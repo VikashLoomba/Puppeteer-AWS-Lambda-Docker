@@ -46,7 +46,7 @@ exports.lambdaHandler = async (event) => {
     '--single-process',
     '--enable-logging=stderr',
     '--v=1',
-    ]});
+    '--disable-gpu']});
     console.log("Launched");
     const page = await browser.newPage();
 
