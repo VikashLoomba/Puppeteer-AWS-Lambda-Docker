@@ -36,7 +36,7 @@ RUN ls ${FUNCTION_DIR}
 RUN apt-get update \
     && apt-get install -y wget gnupg chromium \
     && apt-get update \
-    && apt-get install -y fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 \
+    && apt-get install -y fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 mesa-utils mesa-utils-extra \
       --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 ADD aws-lambda-rie /usr/local/bin/aws-lambda-rie
