@@ -2,6 +2,7 @@ const puppeteer =  require("puppeteer-extra");
 // add stealth plugin and use defaults (all evasion techniques)
 const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 exports.lambdaHandler = async (event) => {
+  console.log(event);
   const url = event['queryStringParameters'].url;
   console.log(event['queryStringParameters']);
   puppeteer.use(StealthPlugin());

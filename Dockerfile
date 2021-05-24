@@ -39,7 +39,9 @@ RUN apt-get update \
     && apt-get install -y fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 \
       --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
-
-ENTRYPOINT ["/usr/local/bin/npx", "aws-lambda-ric"]
+ADD aws-lambda-rie /usr/local/bin/aws-lambda-rie
+ADD entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod u+x /usr/local/bin/entrypoint.sh
+ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
 ENV HOME="/tmp"
 CMD [ "/function/app.lambdaHandler" ]
