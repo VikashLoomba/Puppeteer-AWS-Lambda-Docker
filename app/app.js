@@ -43,7 +43,8 @@ exports.lambdaHandler = async (event) => {
     '--use-gl=swiftshader',
     '--use-mock-keychain',
     '--single-process',
-    '--enable-logging=v1',
+    '--enable-logging=stderr',
+    '--v=1',
     '--disable-gpu']});
     console.log("Launched");
     const page = await browser.newPage();
@@ -54,15 +55,16 @@ exports.lambdaHandler = async (event) => {
       await page.goto("https://google.com");
     }
     
-    const pdfStream = await page.pdf();
+    // const pdfStream = await page.pdf();
+    const screenshot = await page.screenshot({ path: '/tmp/page.png', fullPage: true, encoding: "base64" })
     await browser.close();
     return {
       statusCode: 200,
       isBase64Encoded: true,
       headers: {
-        "Content-type": "application/pdf"
+        "Content-type": "image/png"
       },
-      body: pdfStream.toString("base64")
+      body: screenshot.toString("base64")
     };
   } catch(e) {
     console.log(e);
