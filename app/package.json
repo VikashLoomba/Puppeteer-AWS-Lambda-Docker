@@ -12,7 +12,7 @@
     "aws-lambda-ric": "^1.0.0",
     "chrome-launcher": "^0.13.4",
     "node-fetch": "^2.6.1",
-    "puppeteer": "^5.5.0",
+    "puppeteer": "^8.0.0",
     "puppeteer-extra": "^3.1.15",
     "puppeteer-extra-plugin-devtools": "^2.2.14",
     "puppeteer-extra-plugin-stealth": "^2.6.5"
